@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÉTODO CRUD</title>
+</head>
+
+<body>
+
+    <button><a href="/"> Voltar</a></button>
+    <br>
+    <h2>Dados de Usuário e Senhas Registradas</h2>
+
+    <% for( let dados of dadosUsuario) { %>
+
+        <div> <strong> Usuário: </strong> <%= dados.nome %> </div>
+        <div> <strong> Senha: </strong> <%= dados.password %> </div>
+        <div>----------------------------</div>
+        <% } %>
+
+</body>
+
+</html>

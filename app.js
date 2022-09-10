@@ -3,6 +3,9 @@ const app = express();
 
 app.set("view engine", 'ejs');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+
 const IndexRouter = require ('./routers/IndexRouter');
 app.use('/', IndexRouter);
 
