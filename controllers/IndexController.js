@@ -46,7 +46,7 @@ module.exports ={
 
         let usuarioEncontrado = dadosUsuario.find(dadosUsuario => dadosUsuario.nome == usuarioAntigo);
 
-        usuarioEncontrado == undefined ? res.render('usuarioNaoEncontrado.ejs', {usuarioAntigo}) :
+        usuarioEncontrado == undefined ? res.render('usuarioNaoEncontrado.ejs', {usuario: usuarioAntigo}) :
 
         usuarioEncontrado.nome = req.body.nome;
         usuarioEncontrado.password = req.body.password;
@@ -57,11 +57,28 @@ module.exports ={
     },
 //METODO DELETE
     metodoDelete: (req, res) => {
-        res.send('TESTE DELETE')
+        res.render('metodoDelete.ejs', {dadosUsuario});
 
     },
 
     processamentoMetodoDelete: (req, res) => {
 
+        let usuarioDeletar = req.body.usuarioDeletar;
+        let usuarioEncontrado = dadosUsuario.find(dadosUsuario => dadosUsuario.nome == usuarioDeletar);
+
+        usuarioEncontrado == undefined ? res.render('usuarioNaoEncontrado.ejs', {usuario: usuarioDeletar}):
+
+        // Metodo array para Remover o usuário encontrado junto com a Metodo indexOf para retornar a posicao do elemento dentro do Array
+        // Metodo splice(): https://www.youtube.com/watch?v=SyuCjQCn05U
+        // Metodo IndexOf(): https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+        dadosUsuario.splice(dadosUsuario.indexOf(usuarioEncontrado),1);
+
+        fs.writeFileSync('./database/dadosUsuario.json', JSON.stringify(dadosUsuario, null, 4));
+
+        res.render('usuarioDeletado.ejs', { usuario: usuarioEncontrado});
+
     }
 }
+
+
+

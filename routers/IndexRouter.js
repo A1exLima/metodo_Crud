@@ -21,6 +21,6 @@ router.put('/metodo_put', IndexController.processamentoMetodoPut);
 
 // METODO DELETE
 router.get('/metodo_delete', IndexController.metodoDelete);
-router.put('/metodo_delete', IndexController.processamentoMetodoDelete);
+router.delete('/metodo_delete', IndexController.processamentoMetodoDelete);
 
 module.exports = router; 

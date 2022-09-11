@@ -9,18 +9,12 @@
 </head>
 
     <body>
-        <h2>MÉTODO PUT - ALTERAÇÃO DE USUÁRIO E SENHA</h2>
+        <h2> MÉTODO DELETE - EXCLUSÃO DE USUÁRIO E SENHA</h2>
 
-        <form action="/metodo_put?_method=PUT" method="post">
+        <form action="/metodo_delete?_method=DELETE" method="post">
             
-            <p>Informe o nome de usuário <u>ANTIGO:</u></p>
-            <input type="text" name="usuarioAntigo">
-        
-            <p>Novo Usuário:</p>
-            <input type="text" name="nome">
-            
-            <p>Nova Senha:</p>
-            <input type="password" name="password"> 
+            <p>Informe o nome de usuário para <u>DELETAR:</u></p>
+            <input type="text" name="usuarioDeletar">
             
             <button type="submit"> Enviar</button>
         </form>
@@ -28,7 +22,9 @@
         <br>
         <button><a href="/"> Voltar</a></button>
 
-        <h3>Verifique qual o usuário e a senha <u>ANTIGA</u> para efetuar a alteração:</h3>
+        <h3>Verifique qual o usuário para <u>DELETAR</u>:</h3>
+
+        </form>
 
         <% for( let dados of dadosUsuario) { %>
             <div> <strong> Usuário: </strong> <%= dados.nome %> </div>
