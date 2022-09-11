@@ -16,8 +16,11 @@ router.post('/metodo_post', IndexController.dadosMetodoPost);
 router.get('/dados_usuario', IndexController.viewDadosUsuario);
 
 // METODO PUT
+router.get('/metodo_put', IndexController.metodoPut);
+router.put('/metodo_put', IndexController.processamentoMetodoPut);
 
+// METODO DELETE
+router.get('/metodo_delete', IndexController.metodoDelete);
+router.put('/metodo_delete', IndexController.processamentoMetodoDelete);
 
-
-
-module.exports = router;
+module.exports = router; 

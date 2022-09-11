@@ -6,6 +6,11 @@ app.set("view engine", 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
+
+app.use(express.static("public"));
+
 const IndexRouter = require ('./routers/IndexRouter');
 app.use('/', IndexRouter);
 

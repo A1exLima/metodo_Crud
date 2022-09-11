@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÉTODO CRUD</title>
+</head>
+
+    <body>
+        <h2>ALTERAÇÃO DE USUÁRIOS E SENHAS</h2>
+
+        <form action="/metodo_put?_method=PUT" method="post">
+            
+            <p>Informe o nome de usuário <u>ANTIGO:</u></p>
+            <input type="text" name="usuarioAntigo">
+        
+            <p>Novo Usuário:</p>
+            <input type="text" name="nome">
+            
+            <p>Nova Senha:</p>
+            <input type="password" name="password"> 
+            
+            <button type="submit"> Enviar</button>
+        </form>
+
+        <br>
+        <button><a href="/"> Voltar</a></button>
+
+        <h3>Verifique qual o usuário e a senha <u>ANTIGA</u> para efetuar a alteração:</h3>
+
+        <% for( let dados of dadosUsuario) { %>
+            <div> <strong> Usuário: </strong> <%= dados.nome %> </div>
+            <div> <strong> Senha: </strong> <%= dados.password %> </div>
+            <div>----------------------------</div>
+        <% } %>
+
+    </body>
+
+</html>
